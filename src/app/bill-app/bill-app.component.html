@@ -1,0 +1,68 @@
+<div>
+    <div class="container bg-light">
+<h2 class="bg-warning">Bill Management App
+    <a href="#" routerLink="/addProduct"> </a>
+    <span class="float-right"> <input class="form-control" style="width: 200px; height: 40px; "
+            placeholder="Search Bill" type="text"></span>
+</h2>
+<!-- --------------------------------------->
+
+<h2 class="text-center text-info fa fa-underline">New Bill</h2>
+<h2>Bill Date: auto for today</h2>
+<br>
+<form [formGroup]='regForm' (submit)="onSubmit()">
+    <table>
+        <tr>
+            <td>Customer Name</td>
+            <td>
+                <input type="text" formControlName="name">
+            </td>
+            <td>Contact No.</td>
+            <td>
+                <input type="text" formControlName="number">
+            </td>
+        </tr>
+    </table>
+    <br>
+    <hr>
+    <h4>Items Details <button type="button" class="btn btn-primary" (click)="addEdu()">Add+</button></h4>
+    <hr>
+    <table class="table table-bordered table-dark table-hover text-center" style="width: 200px">
+        <thead class="bg-info ">
+            <tr>
+                <div>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Amount</th>
+                </div>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let edu of educationArray.controls">
+                <div [formGroup]="edu">
+                    <td>1</td>
+                    <td><input type="text" formControlName="name" placeholder="Name"></td>
+                    <td><input type="text" formControlName="price" placeholder="Price"></td>
+                    <td><input type="text" formControlName="qty" placeholder="Qty"></td>
+                    <td><input type="text" formControlName="amount" placeholder="Amount"></td>
+                </div>
+            </tr>
+            <tr>
+                <h4 class="">Total Bill Amount
+                    <input type="text" formControlName="result" placeholder="Total Amount">
+                </h4>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    
+    <hr>
+    <!-- <button>Submit</button> &nbsp; -->
+    <button type="button" class="btn btn-success" (click)="save()">Save Bill</button>
+    &nbsp;
+    <button type="button" class="btn btn-danger" (click)="clear()">Reset</button>
+
+</form>
+</div></div>
